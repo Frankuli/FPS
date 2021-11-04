@@ -293,7 +293,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnPonint: {fileID: 5343212373121628520}
   bullet: {fileID: 3013612694840603660, guid: 622d7dce0dedc214f874bbd0ac6cbd74, type: 3}
-  shitForce: 1500
+  shotForce: 1500
   shotRate: 0.5
 --- !u!1 &5343212374167232013
 GameObject:

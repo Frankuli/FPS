@@ -6,20 +6,33 @@ public class Shot : MonoBehaviour
 {
     public Transform spawnPonint;
     public GameObject bullet;
-    public float shitForce = 1500f;
+    public float shotForce = 1500f;
     public float shotRate = 0.5f;
+    public float destroyTime = 5f;
 
-    private float shotTime;
+    private float shotRateTime;
 
 
 
-    void Update()
+    void FixedUpdate()
     {
-        if (Input.GetKeyDown(KeyCode.Mouse0))
+        Shoot();
+        
+    }
+
+    void Shoot()
+    {
+        if (Input.GetKeyDown(KeyCode.Mouse0) && Time.time > shotRateTime )
         {
+
             GameObject newBullet;
             newBullet = Instantiate(bullet, spawnPonint.position, spawnPonint.rotation);
+            newBullet.GetComponent<Rigidbody>().AddForce(spawnPonint.forward * shotForce);
+
+            shotRateTime = Time.time + shotRate;
+
+            Destroy(newBullet, destroyTime);
+
         }
-        
     }
 }
