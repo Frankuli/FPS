@@ -3430,6 +3430,24 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1690430612}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1750010972 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5343212374167232011, guid: 052dea7be616b5644994c17eefe488c7, type: 3}
+  m_PrefabInstance: {fileID: 5343212373365375257}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1750010973
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1750010972}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2e86fd5e575e6742923b7a2e3b40306, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  swayAmount: 8
 --- !u!1 &1756889368
 GameObject:
   m_ObjectHideFlags: 0
@@ -4164,11 +4182,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5343212374440556663, guid: 052dea7be616b5644994c17eefe488c7, type: 3}
       propertyPath: shotRate
-      value: 0.3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5343212374440556663, guid: 052dea7be616b5644994c17eefe488c7, type: 3}
       propertyPath: destroyTime
-      value: 4
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 052dea7be616b5644994c17eefe488c7, type: 3}

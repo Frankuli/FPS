@@ -14,7 +14,7 @@ public class Shot : MonoBehaviour
 
 
 
-    void FixedUpdate()
+    void Update()
     {
         Shoot();
         
