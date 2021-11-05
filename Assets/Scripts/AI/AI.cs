@@ -6,23 +6,59 @@ using UnityEngine.AI;
 public class AI : MonoBehaviour
 {
     public NavMeshAgent navMeshAgent;
-    public GameObject destination1;
-    public GameObject destination2;
+    public Transform[] destinations;
 
+    public float distanceToFollowPlayer = 10;
+    public float distanceToFollowPath = 2;
+
+    [Header("----------------FollowPlayer?----------------")]//comentario dentro del inpector
+    public bool followPlayer;
+
+    private int i = 0;
+    private GameObject player;
+    private float distanceToPlayer;
 
     void Start()
     {
-        navMeshAgent.destination = destination1.transform.position;
+        navMeshAgent.destination = destinations[0].transform.position;
+        player = FindObjectOfType<PlayerMovement>().gameObject;
     }
 
 
     void Update()
     {
-        float distance = Vector3.Distance(transform.position, destination1.transform.position);
+        distanceToPlayer = Vector3.Distance(transform.position, player.transform.position);
 
-        if (distance < 2)
+        if (distanceToPlayer <= distanceToFollowPlayer && followPlayer)
         {
-            navMeshAgent.destination = destination2.transform.position;
+            FollowPlayer();
         }
+        else
+        {
+            EnemyPath();
+        }
+    }
+
+    public void EnemyPath()
+    {
+        navMeshAgent.destination = destinations[i].position;
+
+        if (Vector3.Distance(transform.position, destinations[i].position) <= distanceToFollowPath)
+        {
+            if (destinations[i] != destinations[destinations.Length - 1])
+            {
+                i++;
+            }
+            else
+            {
+                i = 0;
+            }
+        }
+
+    }
+
+    public void FollowPlayer()
+    {
+        navMeshAgent.destination = player.transform.position;
     }
 }
